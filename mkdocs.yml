@@ -1,0 +1,20 @@
+site_name: HPC Cluster Wiki Docs
+pages:
+     - Home: index.md
+     - 集群概况: cluster.md
+     - 远程连接: remoteAccess.md
+     - 任务系统: jobs.md
+     - 框架使用: 
+        - 'index': 'framework/index.md'
+        - 'pytorch': 'framework/pytorch.md'
+        - 'tensorflow': 'framework/tensorflow.md'
+        - 'caffe': 'framework/caffe.md'
+        - 'maltab': 'framework/matlab.md'
+     - 注意事项: tips.md
+     - FAQ: FAQ.md
+     - 系统监测: systemWatch.md
+     - Linux基础命令: LinuxBasicCommands.md
+     - 管理员存档:
+        - '配置记录': 'admin/systemConfigRecord.md'
+     - About: about.md
+theme: readthedocs
