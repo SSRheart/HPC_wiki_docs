@@ -8,14 +8,15 @@ Ganglia 是一个开源监视项目，设计用来监测收集大量节点的系
 普通计算用户可以通过[ganglia主页](http://219.217.238.193/ganglia)来进行观察。 
 
 
-在ganglia主页的`HPC_cluster Grid > HPC_cluster > [Choose a Node]` 下拉列表中，可以选择具体计算节点或master观察。从计算节点收集的数据包括
-- CPU 占用(system/user/idle)
-- 磁盘空间余量
-- GPU使用率/显存使用率/温度/风扇转速 (仅计算节点)
-- 内存使用率
-- 系统负载(Load)
-- 网络状态
-- 进程统计
+在ganglia主页的`HPC_cluster Grid > HPC_cluster > [Choose a Node]` 下拉列表中，可以选择具体计算节点或master观察。从计算节点收集的数据包括  
+
+* cpu 占用(system/user/idle)  
+* 磁盘空间余量  
+* GPU使用率/显存使用率/温度/风扇转速 (仅计算节点)  
+* 内存使用率  
+* 系统负载(Load)  
+* 网络状态  
+* 进程统计  
 
 
 ## 常用系统运行状态检测指令

@@ -9,23 +9,23 @@
 
 在每个计算节点上，配置有
 
-Device | Details(x Number) |
---- | ---  --- |
-CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16|
-GPU | Nvidia 1080 Ti | x8|
-磁盘 | --  -- |
-内存| 125G  |
+Device | Details(x Number) 
+--- | --- 
+CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
+GPU | NVIDIA GeForce GTX 1080 Ti x8
+磁盘 | --  -- 
+内存| 125G  
 
 ### Master 节点
 Master 节点是用户远程连接的入口节点。普通计算用户只需在master上提交计算程序，保存网络模型等操作，无需进行与计算节点有关的操作。
 
 Master 节点配置有
 
-Device | Details(x Number) |
---- | ---  --- |
-CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16|
-磁盘 | --  -- |
-内存| 125G  |
+Device | Details(x Number) 
+--- | ---  --- 
+CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
+磁盘 | --  -- 
+内存| 125G  
 
 
 ## 系统版本
