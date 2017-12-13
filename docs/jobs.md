@@ -11,7 +11,7 @@
 #PBS -N myjob1
 #PBS -o /home/username/myjob1.out
 #PBS -e /home/username/myjob1.err
-#PBS -l nodes=1:ppn=1:gpus=1:5
+#PBS -l nodes=1:ppn=1:gpus=1
 #PBS -r y
 cd $PBS_O_WORKDIR
 echo Time is `date`
@@ -22,22 +22,33 @@ cat $PBS_GPUFILE
 ./my_proc
 ```
 
+
 注意这里的`#`不是shell脚本中的注释符号， `#PBS`表明本行之后为定义参数。  
+
+
 torque可指定的参数及解释:
 
-    `-N` : N(ame) 作业名称，应当具有一定标识性。  
-    `-o` ：o(utput), 指定标准输出文件。  
-    `-e` : e(rror), 指定标准错误输出文件。  
-    `-j` : 系统输出，如如果指定为`oe`,则将标准输出stdout和标准错误输出stderr合并为stdout, 
-                    如果指定为`eo`,则将标准错误输出stderr和标准输出stdout合并为stderr, 
-    `-l` : 指定作业使用的节点和CPU、GPU  
-           nodes=X:ppn=Y:gpus=Z  
-           nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1..6)  
-           ppn=Y 指定每个节点使用CPU的数量(processor per node)  
-           gpus=Z 指定使用GPU的数量  
-    `-r` : `y`表示作业立即执行
-  
+option | meaning
+--- | --- 
+`-e` | e(rror), 指定标准错误输出文件。 /dev/null 丢弃输出
+`-j` | j(oin) 合并系统输出，如果指定为`oe`,则将标准输出stdout和标准错误输出stderr合并为stdout, 
+     |           如果指定为`eo`,则将标准错误输出stderr和标准输出stdout合并为stderr, 
+`-l` | 指定作业使用的节点和CPU、GPU 资源
+`-m` | m(ail) 指定何种情况发送邮件
+`-N` | N(ame) 作业名称，应当具有一定标识性。  
+`-o` | o(utput), 指定标准输出文件。 /dev/null 丢弃输出
+`-q` | 指定排队队列
+`-r` | r(erunable) 是否设置作业的`可重复执行`属性为True, 即节点故障的情况下任务是否可以重复执行
+`-S` | 指定用来处理作业脚本的程序，一般为shell
 
+  
+关于`-l` 的详细说明：
+```
+   nodes=X:ppn=Y:gpus=Z  
+   nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1..6)  
+   ppn=Y 指定每个节点使用CPU的数量(processor per node)  
+   gpus=Z 指定使用GPU的数量  
+```
 
 ## 作业提交
 使用`qsub`命令提交写好的`psb`脚本文件(submit)：  
@@ -45,6 +56,15 @@ torque可指定的参数及解释:
 
 ## 作业状态查看
 `qstat`
+ 
+一个样例输出：
+```
+▶ qstat                
+Job ID                    Name             User            Time Use S Queue
+------------------------- ---------------- --------------- -------- - -----
+213.master                 TEST             user                   0 Q default        
+214.master                 TEST             user                   0 Q default  
+```
 
 各状态标记：
 
@@ -56,6 +76,7 @@ H   | Held 任务被挂起
 Q   | Queued 任务排队中,能够运行或路由
 R   | Running 任务运行中
 T   | 任务正被移动到新的位置
+
 W   | Waiting 任务正在等待执行时间到来(PBS脚本中 -a 选项可指定任务启动时间)
 
 
