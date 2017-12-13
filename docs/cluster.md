@@ -13,7 +13,7 @@ Device | Details(x Number)
 --- | --- 
 CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 GPU | NVIDIA GeForce GTX 1080 Ti x8
-磁盘 | --  -- 
+磁盘 | 500G，可用约400G 
 内存| 125G  
 
 ### Master 节点
@@ -24,16 +24,27 @@ Master 节点配置有
 Device | Details(x Number) 
 --- | ---  --- 
 CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
-磁盘 | --  -- 
+磁盘 | 总可用约3.6T 
 内存| 125G  
 
 
 ## 系统版本
 `Red Hat Enterprise Linux Server release 6.8 (Santiago)`
 
-
-
 ## 开发工具栈
+
+* CUDA 8.0
+* cuDNN 5.0
+* Torque资源管理系统 v6.0.2
+* MATLAB R2017a
+* Opencv-2.4.9
+* python 2.7, 2.6
+
+底层依赖  
+
+* gcc,g++ 4.4.7  
+* protobuf 3.5.0  
+
 截止目前，已经完成pytorch，caffe, Matlab 等框架或软件的安装。  
 关于实际使用各框架或软件进行训练学习，请继续阅读本文档的[框架](framework/index.md)部分。
 
