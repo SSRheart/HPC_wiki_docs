@@ -48,3 +48,5 @@ CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 截止目前，已经完成pytorch，caffe, Matlab 等框架或软件的安装。  
 关于实际使用各框架或软件进行训练学习，请继续阅读本文档的[框架](framework/index.md)部分。
 
+## 常用目录
+* /share/Dataset 用于存放各种数据集。为了避免重复占用空间，请将用到的数据集统一放到这个目录下，请勿重复添加

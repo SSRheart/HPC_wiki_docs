@@ -51,6 +51,7 @@ The key's randomart image is:
 | .++o |
 +-----------------+
 ```
+
 -2. 继续执行`ssh-copy-id abc@219.217.238.193`   
 这一步骤将SSH公钥保存到服务器。
 
@@ -58,4 +59,21 @@ The key's randomart image is:
 
 ## 账号与密码
 账号申请、密码找回等，请联系管理员操作。
+
+# 传送文件
+
+### *nix环境
+若是单个文件，
+
+`scp LOCALFILE USERNAME@219.217.238.193:/REMOTE_FILE_PATH `
+
+若是文件夹，
+`scp -r LOCALFILE USERNAME@219.217.238.193:/REMOTE_FILE_PATH`
+
+建议先将文件夹/大文件压缩，然后再传输。
+
+### Windows环境
+可以选择的工具有SecureFx等。
+与远程登录类似，您需要配置好您的用户名和密码。
+
 
