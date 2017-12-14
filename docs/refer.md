@@ -12,4 +12,8 @@
 * Torque 6.0.2 官方文档  
     [[pdf]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/torqueAdminGuide-6.0.2.pdf) 
     [[html]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/help.htm) 
-                
+               
+
+### Anaconda
+
+* [Conda Cheet Sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf) 
