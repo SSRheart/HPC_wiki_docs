@@ -19,6 +19,7 @@ Matconvnet的编译路径是`/share/apps/matconvnet/matconvnet-1.0-beta$(version
 #PBS -o /home/USERNAME/logs/log
 #PBS -e /home/USERNAME/logs/errlog
 
+cd YOUR_M_PATH # YOUR_M_PATH 指的是您的demo.m所在的文件夹
 /share/apps/MATLAB/R2017a/bin/matlab -r -nodesktop "demo"
 ```
 然后提交这个任务文件就可以了。
