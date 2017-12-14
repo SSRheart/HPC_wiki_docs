@@ -13,12 +13,27 @@ HPC服务器只能在校园网登录, 集群ip是`219.217.238.193`.
 在终端中输入`ssh abc@219.217.238.193`  
 出现输入密码的提示后，输入相应密码即可  
 
+为了省去每次输入IP地址的步骤，可以将ssh命令写入到脚本login.sh：
+```
+#!/bin/sh                                                                      
+ssh yourName@219.217.238.193
+```
+然后运行
+```
+chmod +x login.sh
+./login.sh
+```
+即可建立连接，等待输入密码。
 
 
 ## Windows 环境
 Windows下需要使用连接工具进行连接。    
 可以选择的连接工具包括[MobaXterm](https://mobaxterm.mobatek.net/)、[PuTTY](http://www.putty.org/)等  
 其中MobaXterm支持文件拖拽上传。
+
+使用MobaXterm 建立一个session来保存连接信息。
+![使用MobaXterm连接](img/login.jpeg)
+
 
 不同的连接工具连接方式可能略有不同，但一般情况下配置好服务器IP和用户，进行连接，输入密码即可。
 

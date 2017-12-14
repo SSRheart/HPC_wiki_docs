@@ -19,7 +19,7 @@ source /share/apps/anaconda2/bin/activate pytorch0.3.0
 python startup.py
 
 ```
-
+更多关于提交作业的内容，请参考[作业系统](http://127.0.0.1:8000/jobs/)
 
 
  
