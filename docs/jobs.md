@@ -30,16 +30,17 @@ torque可指定的参数及解释:
 
 option | meaning
 --- | --- 
-`-e` | e(rror), 指定标准错误输出文件。 /dev/null 丢弃输出
+`-e` | e(rror), 指定标准错误输出文件。 设置为/dev/null则丢弃错误输出
 `-j` | j(oin) 合并系统输出，如果指定为`oe`,则将标准输出stdout和标准错误输出stderr合并为stdout, 
      |           如果指定为`eo`,则将标准错误输出stderr和标准输出stdout合并为stderr 
 `-l` | 指定作业使用的节点和CPU、GPU 资源
-`-m` | m(ail) 指定何种情况发送邮件
 `-N` | N(ame) 作业名称，应当具有一定标识性
-`-o` | o(utput), 指定标准输出文件。 /dev/null 丢弃输出
+`-o` | o(utput), 指定标准输出文件,设置为/dev/null则丢弃输出
 `-q` | 指定排队队列
 `-r` | r(erunable) 是否设置作业的`可重复执行`属性为True, 即节点故障的情况下任务是否可以重复执行
 `-S` | 指定用来处理作业脚本的程序，一般为shell程序
+`-m` | m(ail) 指定何种情况发送邮件（邮件功能暂未开放, 此选项暂时无效)
+
 
 > `注意，如果您预料到标准输出/错误输出会很大，建议您减少输出或者将输出丢弃。并将有用的结果在程序中保存到别的文件中去。`
 
@@ -50,14 +51,22 @@ option | meaning
    nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1..6)  
    ppn=Y 指定每个节点使用CPU的数量(processor per node)  
    gpus=Z 指定使用GPU的数量  
+
+   对于不支持多机并行的框架，应选择nodes=1, 且gpus的上限为8. 
+   受限于编译支持多机并行特性较为复杂，目前caffe/MATLAB/pytorch采用上述单机多GPU的方式。  
+
+   ppn=Y 的上限为16  
+     
 ```
 
 ## 作业提交
 使用`qsub`命令提交写好的`psb`脚本文件(submit)：  
 `qsub run_job_demo.pbs`    
 
+提交后可能需要十几秒的时间您的作业才会被调度到排队队列中。
+
 ## 作业状态查看
-`qstat`
+### `qstat`
  
 一个样例输出：
 ```
@@ -67,6 +76,10 @@ Job ID                    Name             User            Time Use S Queue
 213.master                 TEST             user                   0 Q default        
 214.master                 TEST             user                   0 Q default  
 ```
+
+各列的含义分别为:
+`作业ID， 作业名，  提交作业的用户，    作业已运行时间，    作业状态，  作业队列`
+
 
 各状态标记(`S`栏)意义：
 
@@ -80,10 +93,15 @@ R   | Running 任务运行中
 T   | 任务正被移动到新的位置
 W   | Waiting 任务正在等待执行时间到来(PBS脚本中 -a 选项可指定任务启动时间)
 
+### qstat 参数
+* `qstat job1, job2 ...` 查看多个作业的信息
+* `qstat -f jobid` 查看作业ID=`jobid`的作业的详细信息
+* `qstat -u userabc` 查看用户名=`userabc`的用户的作业
+ 
 
 ## 其它作业命令
 ### 挂起 qhold
-`qhold 127` 将127号作业挂起，暂停运行。  
+`qhold job1 job2` 将127号作业挂起，暂停运行。  
 被挂起的作业为`H`状态。
 
 ### 恢复 qrls
