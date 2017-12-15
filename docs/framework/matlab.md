@@ -1,6 +1,6 @@
 
 ### Matlab & Matconvnet的使用说明
-Matlab(2017)的安装路径是`/share/apps/MATLAB/R2017a/bin/matlab`
+Matlab(R2017a)的安装路径是`/share/apps/MATLAB/R2017a/bin/matlab`
 
 Matconvnet的编译路径是`/share/apps/matconvnet/matconvnet-1.0-beta$(version)`
 
@@ -9,7 +9,8 @@ Matconvnet的编译路径是`/share/apps/matconvnet/matconvnet-1.0-beta$(version
 
 现在Matlab与MatConvNet只支持单机版本，但仍然需要通过openpbs排队系统来提交作业。
 
-#### 如何不用图形界面跑matlab程序
+#### 如何不用图形界面跑Matlab程序
+服务器端没有桌面环境，运行方式与桌面环境下有所不同。  
 
 比如您要跑的程序是demo.m，那么您的PBS文件应该是这个样子：
 ```shell
@@ -32,3 +33,4 @@ cd YOUR_M_PATH # YOUR_M_PATH 指的是您的demo.m所在的文件夹
 -	25: cuda 8.0 + cudnn 5.0
 
 若您需要别的版本支持，请联系管理员。
+

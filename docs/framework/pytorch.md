@@ -1,9 +1,12 @@
-# pytorch 0.3.0
+# pytorch
 
-anaconda2
+## 版本
 
-python2.7
+pytorch使用anaconda2安装,版本0.3.0，虚拟环境名为pytorch0.3.0, 此环境中python 版本2.7。   
+带有torchvision
 
+
+## 提交作业
 ```shell
 #PBS -N test_pytorch
 #PBS -q default
@@ -17,3 +20,5 @@ cd YOUR_WORK_DIRECTORY # IMPORTANT
 python demo.py
 source deactivate
 ```
+更多关于提交作业的内容，请参考[作业系统](http://127.0.0.1:8000/jobs/)
+

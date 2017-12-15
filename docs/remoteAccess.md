@@ -13,12 +13,27 @@ HPC服务器只能在校园网登录, 集群ip是`219.217.238.193`.
 在终端中输入`ssh abc@219.217.238.193`  
 出现输入密码的提示后，输入相应密码即可  
 
+为了省去每次输入IP地址的步骤，可以将ssh命令写入到脚本login.sh：
+```
+#!/bin/sh                                                                      
+ssh yourName@219.217.238.193
+```
+然后运行
+```
+chmod +x login.sh
+./login.sh
+```
+即可建立连接，等待输入密码。
 
 
 ## Windows 环境
 Windows下需要使用连接工具进行连接。    
 可以选择的连接工具包括[MobaXterm](https://mobaxterm.mobatek.net/)、[PuTTY](http://www.putty.org/)等  
 其中MobaXterm支持文件拖拽上传。
+
+使用MobaXterm 建立一个session来保存连接信息。
+![使用MobaXterm连接](img/login.jpeg)
+
 
 不同的连接工具连接方式可能略有不同，但一般情况下配置好服务器IP和用户，进行连接，输入密码即可。
 
@@ -31,11 +46,11 @@ Windows下需要使用连接工具进行连接。
 将会输出：
 ```
 Generating public/private rsa key pair.
-Enter file in which to save the key (/home/abc/.ssh/id_rsa): 　[按 Enter键]
+Enter file in which to save the key (/home/abc/.ssh/id_rsa): 　[输入想要保存的文件名，否则使用默认文件名。]
 Enter passphrase (empty for no passphrase): 　　[输入你之前提交的远程主机登录密码]
 Enter same passphrase again: 　　[再次输入上一密码]
 Your identification has been saved in /home/abc/.ssh/id_rsa.
-Your public key has been saved in /home/abc/.ssh/id_rsa.pub.
+Your public key has been saved in /home/abc/.ssh/id_rsa.pub.  (根据之前输入的文件名,实际文件会有不同)
 The key fingerprint is:
 e1:dc:ab:ae:b6:19:b0:19:74:d5:fe:57:3f:32:b4:d0 matrix@vivid
 The key's randomart image is:
@@ -63,12 +78,16 @@ The key's randomart image is:
 # 传送文件
 
 ### *nix环境
-若是单个文件，
 
+使用scp命令，从本地传输到服务器和从服务器传输到本地的用法基本一致，只需在scp命令中按照  
+`scp [-r]  source destination` 的顺序书写即可。
+
+以本地数据传输到服务器为例：  
+若是单个文件，
 `scp LOCALFILE USERNAME@219.217.238.193:/REMOTE_FILE_PATH `
 
-若是文件夹，
-`scp -r LOCALFILE USERNAME@219.217.238.193:/REMOTE_FILE_PATH`
+若是文件夹,
+`scp -r LOCALFOLDER USERNAME@219.217.238.193:/REMOTE_FILE_PATH`
 
 建议先将文件夹/大文件压缩，然后再传输。
 
