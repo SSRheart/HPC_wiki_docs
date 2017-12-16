@@ -35,15 +35,15 @@ CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 
 * CUDA 8.0
 * cuDNN 5.0
-* Torque资源管理系统 v6.0.2
+* Torque资源管理系统 6.0.2
 * MATLAB R2017a
-* Opencv-2.4.9
+* Opencv 2.4.9
 * python 2.7, 2.6
+* pytorch 0.3.0
 
 底层依赖  
 
 * gcc,g++ 4.4.7  
-* protobuf 3.5.0  
 
 截止目前，已经完成pytorch，caffe, Matlab 等框架或软件的安装。  
 关于实际使用各框架或软件进行训练学习，请继续阅读本文档的[框架](framework/index.md)部分。

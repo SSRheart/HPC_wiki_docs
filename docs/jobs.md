@@ -49,6 +49,10 @@ option | meaning
 ```
    nodes=X:ppn=Y:gpus=Z  
    nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1..6)  
+   如果使用nodes=nodeX 指定的方式，请先查看[/jobs](jobs.md)获得可用节点的信息   
+   或者使用本节后面的`pbsnodes -l free`命令，以免造成不必要的排队等待。  
+
+
    ppn=Y 指定每个节点使用CPU的数量(processor per node)  
    gpus=Z 指定使用GPU的数量  
 
@@ -56,6 +60,8 @@ option | meaning
    受限于编译支持多机并行特性较为复杂，目前caffe/MATLAB/pytorch采用上述单机多GPU的方式。  
 
    ppn=Y 的上限为16  
+
+   推荐按照ppn:gpus = 2:1的比例来申请资源
      
 ```
 
