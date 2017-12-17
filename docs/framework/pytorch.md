@@ -20,5 +20,5 @@ cd YOUR_WORK_DIRECTORY # IMPORTANT
 python demo.py
 source deactivate
 ```
-更多关于提交作业的内容，请参考[作业系统](http://127.0.0.1:8000/jobs/)
+更多关于提交作业的内容，请参考[作业系统](../jobs.md)
 

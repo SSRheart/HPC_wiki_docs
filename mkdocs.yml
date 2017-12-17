@@ -6,10 +6,10 @@ pages:
      - 任务系统: jobs.md
      - 框架使用: 
         - '概要': 'framework/index.md'
-        - 'pytorch': 'framework/pytorch.md'
-        - 'tensorflow': 'framework/tensorflow.md'
-        - 'caffe': 'framework/caffe.md'
-        - 'maltab': 'framework/matlab.md'
+        - 'PyTorch': 'framework/pytorch.md'
+        - 'TensorFlow': 'framework/tensorflow.md'
+        - 'Caffe': 'framework/caffe.md'
+        - 'MATLAB': 'framework/matlab.md'
      - 注意事项: tips.md
      - 参考资料: refer.md
      - FAQ: FAQ.md
@@ -18,5 +18,6 @@ pages:
      - 管理员存档:
         - '配置记录': 'admin/systemConfigRecord.md'
      - About: about.md
-     - ToDoList: todo.md
 theme: readthedocs
+markdown_extensions:
+    - admonition

@@ -1,8 +1,0 @@
-This is the build repo for HPC cluster wiki docs.
-And may be ahead of the published version.
-
-Use `mkdocs build` to build
-and `cp -r /site /usr/local/apache2/htdocs` to publish 
- 
-Note: Use English file name for cross-platform for compatibility
-

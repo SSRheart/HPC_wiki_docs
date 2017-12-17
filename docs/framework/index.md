@@ -5,14 +5,13 @@
 
 * pytorch0.3.0 
 * tensorflow
-* caffe_single  (pycaffe 使用）
 
 运行`conda env list`可以获得可用的python虚拟环境。
 
 
 #### 激活环境:
 `source activate environment_name`  
-对于提交作业情况下， 要激活python环境，需要指出`activate`的完整路径，也即：
+需要提交作业时， 如果要激活python虚拟环境，需要指出`activate`的完整路径，也即：
 `source /share/apps/anaconda2/bin/activate environment_name`
 
 请看[pytorch 作业脚本](pytorch.md)来进一步了解。 

@@ -42,34 +42,38 @@ option | meaning
 `-m` | m(ail) 指定何种情况发送邮件（邮件功能暂未开放, 此选项暂时无效)
 
 
-如果没有指定标准输出和错误输出文件，在用户提交作业的目录下将会生成`jobname`.o`jobid` 和`jobname`.e`jobid`两个文件来收集这两个信息。
-> `注意，如果您预料到标准输出/错误输出会很大，建议您减少输出或者将输出丢弃。并将有用的结果在程序中保存到别的文件中去。`   
-  
-关于`-l` 的详细说明：
-```
-   nodes=X:ppn=Y:gpus=Z  
-   nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1..6)  
-   如果使用nodes=nodeX 指定的方式，请先查看[/jobs](jobs.md)获得可用节点的信息   
-   或者使用本节后面的`pbsnodes -l free`命令，以免造成不必要的排队等待。  
+!!! Note
+    如果没有指定标准输出和错误输出文件，在用户提交作业的目录下将会生成`jobname`.o`jobid` 和`jobname`.e`jobid`两个文件来收集这两个信息。
 
+    注意，如果您预料到标准输出/错误输出会很大，建议您减少输出或者将输出丢弃。并将有用的结果在程序中保存到别的文件中去。   
+ 
+!!! Note 
+    关于`-l` 的详细说明：
 
-   ppn=Y 指定每个节点使用CPU的数量(processor per node)  
-   gpus=Z 指定使用GPU的数量  
+    nodes=X:ppn=Y:gpus=Z  
 
-   对于不支持多机并行的框架，应选择nodes=1, 且gpus的上限为8. 
-   受限于编译支持多机并行特性较为复杂，目前caffe/MATLAB/pytorch采用上述单机多GPU的方式。  
+    nodes=X 指定使用X个节点. 也可以指定nodes=nodeX (X可取1/2/..6)  
+    如果使用nodes=nodeX 指定的方式，请先查看[/jobs](http://219.217.238.193/jobs)获得可用节点的信息   
+    或者使用本节后面的`pbsnodes -l free`命令，以免造成不必要的排队等待。  
 
-   ppn=Y 的上限为16  
+    ppn=Y 指定每个节点使用CPU的数量(processor per node)  
+    ppn=Y 的上限为16  
 
-   推荐按照ppn:gpus = 2:1的比例来申请资源
-     
-```
+    gpus=Z 指定使用GPU的数量  
+
+    对于不支持多机并行的框架，应选择nodes=1, 且gpus的上限为8. 
+    受限于编译支持多机并行特性较为复杂，目前caffe/MATLAB/pytorch采用上述单机多GPU的方式。  
+
+    推荐按照ppn:gpus = 2:1的比例来申请资源, 实际申请数量可以根据当前排队情况和您的程序资源消耗偏向自行斟酌
 
 ## 作业提交
 使用`qsub`命令提交写好的`psb`脚本文件(submit)：  
 `qsub run_job_demo.pbs`    
 
 提交后可能需要十几秒的时间您的作业才会被轮询调度到排队队列中。硬件资源充足的情况下也会如此。
+
+!!! Warning
+    如果计算资源充足的情况下，您的计算作业一直不能开始运行，请联系管理员。
 
 ## 作业状态查看
 ### `qstat`

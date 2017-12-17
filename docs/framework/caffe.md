@@ -2,7 +2,8 @@
 
 ### 路径
 
-caffe 的依赖库源码路径：`/share/package/caffelib_packages`
+caffe 的依赖库源码路径：`/share/package/caffelib_packages` 
+ 
 caffe 的依赖库安装路径：`/share/apps/caffelib`
 
 caffe 的源码和安装路径均为: `/share/package/caffe`
@@ -26,15 +27,16 @@ cd YOUR_SCRIPTS_PATH
 sh YOUR_SCRIPTS.sh
 ```
 
-其中:
-`YOUR_SCRIPTS_PATH`指的是你要运行的脚本
+其中:  
+`YOUR_SCRIPTS_PATH`指的是你要运行的脚本  
 `YOUR_SCRIPTS`所在的路径。
 
-**请注意，如果您申请的gpu数量与您实际使用的gpu数量不一致，作业会被删除**
-
+!!! Warning
+**请注意，如果您申请的gpu数量与您实际使用的gpu数量不一致，作业会被删除**  
 **另外，在涉及到文件中各种路径的地方，建议使用绝对路径而不是相对路径**
 
-更多关于任务系统的东西，请参考[任务系统](../jobs.md)。
+
+更多关于提交作业的内容，请参考[作业系统](../jobs.md).
 
 ### pycaffe
 
