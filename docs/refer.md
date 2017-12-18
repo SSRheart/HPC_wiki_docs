@@ -1,6 +1,6 @@
 
 ## 参考资料
-本文档整理形成过程中参考了以下文档及资料，特此列出以示感谢。  
+本文档整理形成过程中参考了以下文档及资料，特此列出以示感谢。
 
 同时也列出另外的资料供需要进一步了解细节的用户深入学习。
 
@@ -9,14 +9,14 @@
 
 * [中科大Torque使用手册(pdf)](http://mccipc.ustc.edu.cn/mediawiki/images/4/47/Torque使用手册.pdf)
 
-* Torque 6.0.2 官方文档  
-    [[pdf]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/torqueAdminGuide-6.0.2.pdf) 
-    [[html]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/help.htm) 
-               
+* Torque 6.0.2 官方文档
+    [[pdf]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/torqueAdminGuide-6.0.2.pdf)
+    [[html]](http://docs.adaptivecomputing.com/torque/6-0-2/adminGuide/help.htm)
+
 
 ### Anaconda
 
-* [Conda Cheet Sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf) 
+* [Conda Cheet Sheet](https://conda.io/docs/_downloads/conda-cheatsheet.pdf)
 
 ### Ganglia
 * [Ganglia Official Site](http://ganglia.sourceforge.net/)
@@ -31,4 +31,4 @@
 * [Vim Cheet Sheet](http://vimsheet.com/)
 
 ### Linux 命令速查
-* [Linux命令大全](http://man.linuxde.net/）
+* [Linux命令大全](http://man.linuxde.net/)
