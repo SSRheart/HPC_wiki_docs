@@ -23,3 +23,15 @@ Ganglia 是一个开源监视项目，设计用来监测收集大量节点的系
 
 ## 常用系统运行状态检测指令
 
+### top 命令
+
+给出实时动态的进程列表和系统状态 [top 使用实例](https://linux.cn/article-2352-1.html)
+
+### ps 命令
+
+显示被选中的系统活跃进程的信息。
+
+例如  
+`ps aux | grep yourUserName`
+将会列出活跃的属于`yourUserName`用户的进程。
+
