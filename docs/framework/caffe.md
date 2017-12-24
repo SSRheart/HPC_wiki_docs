@@ -58,3 +58,21 @@ export PYTHONHOME=/share/package/caffe/python
 cd YOUR_SCRIPTS_PATH
 sh YOUR_SCRIPTS.sh
 ```
+
+!!! Warning
+    caffe程序的命令行参数中，如果带有gpu选项指定使用的gpu，请始终从0开始写起，即使当前0号GPU已经被占用。
+
+    例如：  
+    当前node1节点gpu0,gpu1已经被占用。现需要继续在node1上提交另外的caffe任务  
+
+    * 如果需要申请一个gpu  
+      #PBS -l 申请资源中gpus=1  
+      caffe命令行参数 --gpu 0  
+
+    * 如果需要申请两个gpu  
+      #PBS -l 申请资源中gpus=2  
+      caffe命令行参数 --gpu 0,1  
+   l
+    注意正如上面提到的，命令行参数请始终从0开始写起。集群任务调度系统能够自行调度实际GPU。
+
+

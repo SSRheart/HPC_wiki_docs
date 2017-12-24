@@ -13,18 +13,21 @@
 #PBS -e /home/username/myjob1.err
 #PBS -l nodes=1:ppn=1:gpus=1
 #PBS -r y
-cd $PBS_O_WORKDIR
-echo Time is `date`
+
+cd $PBS_O_WORKDIR  #需要进入到实际代码目录
+
+echo Time is `date` # 打印一些log信息
 echo Directory is $PWD
 echo This job runs on following nodes:
 cat $PBS_NODEFILE
 cat $PBS_GPUFILE
-./my_proc
+
+./my_proc  # 实际工作程序
 ```
 
 
 注意最开始几行`#PBS`中的`#`不是shell脚本中的注释符号， `#PBS`表明本行之后为定义参数。  
-
+申请资源的参数是小写字母`l`
 
 torque可指定的参数及解释:
 
@@ -66,6 +69,9 @@ option | meaning
 
     推荐按照ppn:gpus = 2:1的比例来申请资源, 实际申请数量可以根据当前排队情况和您的程序资源消耗偏向自行斟酌
 
+!!! Note
+    计算节点分配到任务后的起始目录为你的`$HOME`目录，如果你的`$HOME`目录下面，某个`projectA`文件夹里面才是你的实际工作代码的话，请参考上面的例子，加入`cd projectA`一行。更多层的目录也是如此。 
+    
 ## 作业提交
 使用`qsub`命令提交写好的`psb`脚本文件(submit)：  
 `qsub run_job_demo.pbs`    
@@ -107,7 +113,14 @@ W   | Waiting 作业正在等待执行时间到来(PBS脚本中 -a 选项可指�
 * `qstat job1, job2 ...` 查看多个作业的信息
 * `qstat -f jobid` 查看作业ID=`jobid`的作业的详细信息
 * `qstat -u userabc` 查看用户名=`userabc`的用户的作业
- 
+
+### qstat 自动刷新
+`watch -n 5 qstat` 将每隔5s在终端中自动刷新一次qstat输出
+`-n` 后加你希望的刷新秒数
+
+### /jobs页面
+请到[系统监测](systemWatch.md)一节继续阅读
+
 
 ## 其它作业命令
 ### 挂起 qhold

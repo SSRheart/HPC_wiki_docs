@@ -25,7 +25,9 @@ Ganglia 是一个开源监视项目，设计用来监测收集大量节点的系
 
 ### top 命令
 
-给出实时动态的进程列表和系统状态 [top 使用实例](https://linux.cn/article-2352-1.html)
+给出实时动态的进程列表和系统状态
+
+参考：[top 使用实例](https://linux.cn/article-2352-1.html)
 
 ### ps 命令
 
@@ -35,3 +37,7 @@ Ganglia 是一个开源监视项目，设计用来监测收集大量节点的系
 `ps aux | grep yourUserName`
 将会列出活跃的属于`yourUserName`用户的进程。
 
+### vmstat 命令
+"可以展现给定时间间隔的服务器的状态值,包括服务器的CPU使用率，内存使用，虚拟内存交换情况,IO读写情况"
+
+对于系统进程占用CPU过高、负载异常的时候，top和ps可能不足以定位问题，可以结合`vmstat`命令进一步排查。

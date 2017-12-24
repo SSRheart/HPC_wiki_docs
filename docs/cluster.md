@@ -42,6 +42,7 @@ CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 * python 2.7, 2.6
 * pytorch 0.3.0
 * caffe 
+* torch
 
 底层依赖  
 
