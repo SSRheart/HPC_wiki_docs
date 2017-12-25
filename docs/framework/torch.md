@@ -1,8 +1,12 @@
 # torch
 
+### torch版本
+torch7
+
 ### torch路径
 
-torch源码编译安装路径`/share/apps/torch`  
+
+torch源码编译安装路径`/share/apps/torch`
 torch库源码路径 `/share/package/torch-packages`
 
 ### 提交torch作业

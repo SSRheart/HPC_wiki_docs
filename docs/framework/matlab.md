@@ -10,7 +10,7 @@ Matconvnet的编译路径是`/share/apps/matconvnet/matconvnet-1.0-beta$(version
 现在Matlab与MatConvNet只支持单机版本，但仍然需要通过openpbs排队系统来提交作业。
 
 #### 如何不用图形界面跑Matlab程序
-服务器端没有桌面环境，运行方式与桌面环境下有所不同。  
+服务器端没有桌面环境，运行方式与桌面环境下有所不同。
 
 比如您要跑的程序是demo.m，那么您的PBS文件应该是这个样子：
 ```shell
@@ -20,8 +20,11 @@ Matconvnet的编译路径是`/share/apps/matconvnet/matconvnet-1.0-beta$(version
 #PBS -o /home/USERNAME/logs/log
 #PBS -e /home/USERNAME/logs/errlog
 
+module load MATLAB/R2017a
 cd YOUR_M_PATH # YOUR_M_PATH 指的是您的demo.m所在的文件夹
-/share/apps/MATLAB/R2017a/bin/matlab -r -nodesktop "demo"
+matlab -r -nodesktop "demo"
+
+module unload MATLAB/R2017a
 ```
 然后提交这个任务文件就可以了。
 请参考[任务系统](../jobs.md)。
