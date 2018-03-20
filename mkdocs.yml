@@ -20,6 +20,7 @@ pages:
         - 'tmux': 'linux_basic/Tmux.md'
      - 管理员存档:
         - '配置记录': 'admin/systemConfigRecord.md'
+     - 更新记录: updateLog.md
      - About: about.md
 theme: readthedocs
 markdown_extensions:
