@@ -4,6 +4,7 @@
 目前虚拟环境有：  
 
 * pytorch0.3.0 
+* py36pytorch0.3.1
 * tensorflow
 
 运行`conda env list`可以获得可用的python虚拟环境。
@@ -20,7 +21,7 @@
 `source deactivate`
 
 #### 查看该环境下已经安装的python库:  
-`conda list`
+`conda list`  
 需要安装新python库时，请联系管理员进行操作以便保持各虚拟环境的隔离稳定。
 
 #### 更多anaconda命令

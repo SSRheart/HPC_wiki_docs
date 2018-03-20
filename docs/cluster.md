@@ -39,8 +39,8 @@ CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 * Torque资源管理系统 6.0.2
 * MATLAB R2017a
 * Opencv 2.4.9
-* python 2.7, 2.6
-* pytorch 0.3.0
+* python 2.7, 2.6, 3.6  
+* pytorch 0.3.0, 0.3.1  
 * caffe 
 * torch
 

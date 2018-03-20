@@ -89,6 +89,8 @@ The key's randomart image is:
 若是文件夹,
 `scp -r LOCALFOLDER USERNAME@219.217.238.193:/REMOTE_FILE_PATH`
 
+例如 `scp code.py userxyz@219.217.238.193:/home/userxyz/programs`  
+
 建议先将文件夹/大文件压缩，然后再传输。
 
 ### Windows环境
