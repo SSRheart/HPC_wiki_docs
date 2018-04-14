@@ -7,7 +7,17 @@ passwd XXXX
 make -C /var/yp/
 ```
 
-### 2. Opencv 编译参数
+### 2. 修改用户名
+```shell
+# change both username and home dir name
+usermod -l new_username -m -d /new/home/dir old_username
+
+# you may also want to change the name of the group associated with the user
+groupmod -n new_username old_username
+```
+
+
+### 3. Opencv 编译参数
 ```shell
 rm -rf build
 mkdir build
