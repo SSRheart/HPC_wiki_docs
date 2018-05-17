@@ -46,7 +46,7 @@ CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
 
 底层依赖  
 
-* gcc,g++ 4.4.7  
+* gcc,g++ 4.4.7, 4.8.2
 * cmake 2.8
 
 截止目前，已经完成pytorch，caffe, Matlab 等框架或软件的安装。  

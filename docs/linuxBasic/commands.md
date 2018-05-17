@@ -87,5 +87,12 @@ unzip filename.zip # 在当前目录下解压zip包
 unzip -n filename.zip -d /tmp # 将filename.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，不覆盖原先的文件。
 ```
 ## 数据传输
+使用scp命令，从本地传输到服务器和从服务器传输到本地的用法基本一致，只需在scp命令中按照
+`scp [-r]  source destination` 的顺序书写即可。
 
+以本地数据传输到服务器为例：
+```shell
+scp localeFile yourName@219.217.238.193:/yourServerHome`
+scp -r localeDirectory yourName@219.217.238.193:/yourServerHome`
+```
 

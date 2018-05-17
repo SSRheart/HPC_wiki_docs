@@ -1,9 +1,9 @@
 site_name: HPC Cluster Wiki Docs
 pages:
      - Home: index.md
-     - 集群概况: cluster.md
-     - 远程连接: remoteAccess.md
-     - 任务系统: jobs.md
+     - 集群概况: clusterIntro.md
+     - 远程连接 *: sshConnection.md
+     - 任务系统 *: jobs.md
      - 框架使用:
         - '概要': 'framework/index.md'
         - 'PyTorch': 'framework/pytorch.md'
@@ -11,16 +11,16 @@ pages:
         - 'TensorFlow': 'framework/tensorflow.md'
         - 'Caffe': 'framework/caffe.md'
         - 'MATLAB': 'framework/matlab.md'
-     - 注意事项: tips.md
-     - 参考资料: refer.md
-     - FAQ: FAQ.md
+     - 注意事项 *: tips.md
+     - FAQ *: faq.md
      - 系统监测: systemWatch.md
      - Linux使用:
-        - '基础命令': 'linux_basic/LinuxBasicCommands.md'
-        - 'tmux': 'linux_basic/Tmux.md'
+        - '基础命令': 'linuxBasic/commands.md'
+        - 'tmux': 'linuxBasic/tmux.md'
+     - 参考资料: refer.md
      - 管理员存档:
         - '配置记录': 'admin/systemConfigRecord.md'
-     - 更新记录: updateLog.md
+     - 更新记录: changeLog.md
      - About: about.md
 theme: readthedocs
 markdown_extensions:

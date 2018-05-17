@@ -12,7 +12,7 @@
 
 2. 如何在我实验室的电脑和服务器之间**传送数据**？
 
-    请查阅[数据传输](linux_basic/LinuxBasicCommands.md#数据传输)一节对scp指令的介绍和[远程连接](remoteAccess.md)一节。
+    请查阅[数据传输](linuxBasic/commands.md#数据传输)一节对scp指令的介绍和[远程连接](sshConnection.md)一节。
 
 3. 我是否能够在服务器上**安装软件**?
 

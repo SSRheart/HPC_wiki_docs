@@ -79,18 +79,7 @@ The key's randomart image is:
 
 ### *nix环境
 
-使用scp命令，从本地传输到服务器和从服务器传输到本地的用法基本一致，只需在scp命令中按照  
-`scp [-r]  source destination` 的顺序书写即可。
-
-以本地数据传输到服务器为例：  
-若是单个文件，
-`scp LOCALFILE USERNAME@219.217.238.193:/REMOTE_FILE_PATH `
-
-若是文件夹,
-`scp -r LOCALFOLDER USERNAME@219.217.238.193:/REMOTE_FILE_PATH`
-
-例如 `scp code.py userxyz@219.217.238.193:/home/userxyz/programs`  
-
+使用scp命令，见[Linux使用-基础命令](linuxBasic/commands#数据传输)部分  
 建议先将文件夹/大文件压缩，然后再传输。
 
 ### Windows环境

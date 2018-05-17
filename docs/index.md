@@ -7,7 +7,7 @@
 
 必读
 
-* [集群概况](cluster.md)
+* [集群概况](clusterIntro.md)
 * [任务系统](jobs.md)
 * 框架使用部分，依照你的计算框架选择阅读
 
