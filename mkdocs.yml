@@ -17,6 +17,7 @@ pages:
      - Linux使用:
         - '基础命令': 'linuxBasic/commands.md'
         - 'tmux': 'linuxBasic/tmux.md'
+        - 'gcc': 'linuxBasic/gcc.md'
      - 参考资料: refer.md
      - 管理员存档:
         - '配置记录': 'admin/systemConfigRecord.md'

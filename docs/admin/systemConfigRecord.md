@@ -35,3 +35,16 @@ make -j16
 make install
 cd ..
 ```
+
+### 4. GCC安装与升级
+目前高版本的gcc是通过devtoolset来安装的，现在的版本是devtoolset-2，包含了gcc-4.8.2。安装路径是`/opt/rh/devtoolset-2`。
+
+若需要升级或者安装更高版本的GCC，建议通过devtoolset来安装／升级。
+
+由于devtoolset推荐的安装方式需要联网，我们需要在每个计算节点单独安装一次，所以我们采取的是下载rpm包的方式来安装。
+
+现有的devtoolset的安装包在`/share/package/devtoolset`,里面的`install.sh`就是安装升级devtoolset。
+
+如果要升级，那么去网上找对应的rpm包就可以。
+
+安装完成之后，还需要修改对应的`modulefiles`文件，路径在`/share/apps/Modules/modulefiles/gcc`，按照模板重新写一个文件就好。
