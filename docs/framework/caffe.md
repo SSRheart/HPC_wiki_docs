@@ -21,6 +21,7 @@ caffe 的依赖库安装路径：`/share/apps/caffelib`
 
 ssh node5 
 module load gcc
+module load caffe_basic
 
 cd $YOUR_CAFFE_PATH
 
