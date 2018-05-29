@@ -20,8 +20,8 @@ caffe 的依赖库安装路径：`/share/apps/caffelib`
 # choose a relatively free node and ssh because GPU is needed to compile caffe
 
 ssh node5 
-module load gcc
 module load caffe_basic
+module load gcc
 
 cd $YOUR_CAFFE_PATH
 
