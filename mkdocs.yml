@@ -6,6 +6,7 @@ pages:
      - 任务系统 *: jobs.md
      - 框架使用:
         - '概要': 'framework/index.md'
+        - 'chainer': 'framework/chainer.md'
         - 'PyTorch': 'framework/pytorch.md'
         - 'Torch': 'framework/torch.md'
         - 'TensorFlow': 'framework/tensorflow.md'

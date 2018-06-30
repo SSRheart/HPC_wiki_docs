@@ -1,22 +1,27 @@
-# tensorflow
+# chainer
 
 ## 版本
 
-tensorflow使用anaconda2安装,版本1.3，虚拟环境名为tensorflow, 此环境中python 版本2.7。
+chainer使用anaconda2安装,有如下版本：
+
+* 版本4.2.0，虚拟环境名为`chainer`, python=3.5
+    -   cupy, 4.2.0, 支持cuda与cudnn
+    -   ChainerCV, 0.10.0
+
 
 
 ## 提交作业
 ```shell
-#PBS -N test_pytorch
+#PBS -N test_chainer
 #PBS -q default
 #PBS -l nodes=1:ppn=12:gpus=8
 #PBS -o /home/NAME/logs
 #PBS -e /home/NAME/err_log
 
 module load conda
-source activate tensorflow
+source activate chainer
 
-cd YOUR_WORK_DIRECTORY # IMPORTANT
+cd  $PBS_O_WORKDIR # IMPORTANT
 python demo.py
 source deactivate
 ```
