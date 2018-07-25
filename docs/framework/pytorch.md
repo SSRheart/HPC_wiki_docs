@@ -9,8 +9,13 @@ pytorch使用anaconda2安装,有如下版本：
 
 带有torchvision
 
+**NOTE:** 使用PyTorch提交作业，请在代码内部最开始的地方添加下列语句(其中num是在作业系统中申请的CPU线程数)，否则会导致频繁切换线程，造成系统CPU占用过高，影响自己和他人的运行速度。
+```Python
+torch.set_num_threads(num) # Sets the number of OpenMP threads used for parallelizing CPU operations
+```
 
 ## 提交作业
+
 ```shell
 #PBS -N test_pytorch
 #PBS -q default
