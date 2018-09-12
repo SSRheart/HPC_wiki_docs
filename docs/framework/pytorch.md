@@ -6,10 +6,16 @@ pytorch使用anaconda2安装,有如下版本：
 
 * 版本0.3.0，虚拟环境名为`pytorch0.3.0`, python=2.7
 * 版本0.3.1，虚拟环境名为`py36pytorch0.3.1`, python=3.6
+* 版本0.4.0，虚拟环境名为`py36pytorch0.4.0`, python=3.6
 
 带有torchvision
 
-**NOTE:** 使用PyTorch提交作业，请在代码内部最开始的地方添加下列语句(其中num是在作业系统中申请的CPU线程数)，否则会导致频繁切换线程，造成系统CPU占用过高，影响自己和他人的运行速度。
+如果已有环境不能满足需要，可以自行建立新环境。个人用户创建的新环境相互独立。  
+安装方法见[概要](index.md)
+
+!!! Note
+
+    使用PyTorch提交作业，请注意计算节点资源占用, System部分的CPU占比较高时，推荐在代码内部最开始的地方添加下列语句(其中num是在作业系统中申请的CPU线程数)，避免频繁切换线程造成系统CPU占用过高，影响自己和他人的运行速度。
 ```Python
 torch.set_num_threads(num) # Sets the number of OpenMP threads used for parallelizing CPU operations
 ```

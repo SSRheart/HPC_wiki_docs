@@ -4,6 +4,8 @@
 
 tensorflow使用anaconda2安装,版本1.3，虚拟环境名为tensorflow, 此环境中python 版本2.7。
 
+如果已有环境不能满足需要，可以自行建立新环境。个人用户创建的新环境相互独立。  
+安装方法见[概要](index.md)
 
 ## 提交作业
 ```shell

@@ -44,8 +44,19 @@
     您可以提交申请，但是作业对于同一个资源（CPU线程、GPU）是独占的。除非对方的计算作业结束或被其终止，您的申请将持续等待。
     因此，我们推荐您利用 [/jobs](http://219.217.238.193/jobs) 的信息来避免不必要的排队等待。
 
+9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.14 not found`错误  
+   Step 1.  
+   将`/share/apps/utility_scripts/GLBC_install_user.sh` 复制到自己的`$HOME`目录下并执行。  
+    这将会在你的`$HOME`目录下安装对应版本的GLIBC  
+   Step 2.  
+    安装完成之后，修改环境变量。（可以写到PBS脚本模板中）  
 
+    ```  
+    export LD_LIBRARY_PATH=/path_to_glibc/bin:$LD_LIBRARY_PATH
+    export LD_PRELOAD=/path_to_glibc/lib/libc.so.6:$LD_PRELOAD
+    ```
 
-
+    * 如果缺失的是其它版本的GLIBC，可以参照脚本自行设置。
+    * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
 
 
