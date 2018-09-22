@@ -59,4 +59,17 @@
     * 如果缺失的是其它版本的GLIBC，可以参照脚本自行设置。
     * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
 
-
+10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？
+   大多数框架有按照实际CPU线程数开多线程的趋势，但是在我们申请了其中几个线程的情况下，开过多的线程会导致频繁的上下文切换，十分占用CPU资源，导致自己和他人的程序受到极大的影响。建议按照如下方法根据实际申请的CPU线程数进行限制，以达到更好的性能：
+   - MATLAB
+     ```matlab
+     maxNumCompThreads(num)
+     ```
+   - PyTorch
+     ```python
+     torch.torch.set_num_threads(num)
+     ```
+   - TensorFlow
+     ```python
+     cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num, inter_op_parallelism_threads = num, device_count = {'CPU': num})
+     sess = tf.Session(config=cpu_config)
