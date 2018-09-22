@@ -41,3 +41,11 @@ module unload MATLAB/R2017a
 目前系统并未限制用户可以申请的线程数量，但在使用Matlab编程时，如果你使用了过多线程，可能会导致系统负载过高。具体表现为系统负载飙红，CPU占用上system 系统进程占用了很大比例，这种情况下就提示你可能线程设置过多。
 
 要使用单线程的Matlab，样例运行语句如`maltab -r -nodesktop -singleCompThread "demo"`
+
+建议使用设置最大计算线程数的命令如`maxNumCompThreads(4)`，命令[官方说明](https://ww2.mathworks.cn/help/matlab/ref/maxnumcompthreads.html;jsessionid=f3459476d47b9090b40068db3ef4)如下：
+```matlab
+N = maxNumCompThreads      % 返回计算线程的当前最大数目 N
+LASTN = maxNumCompThreads(N)     % 将计算线程的最大数目设置为 N，并返回计算线程的上一个最大数目 LASTN
+LASTN = maxNumCompThreads('automatic')     % 使用 MATLAB 软件确定为最合适的量来设置计算线程的最大数目。此外，还会返回计算线程的上一个最大数目 LASTN
+```
+当前，计算线程的最大数目等于计算机上的计算内核的数目。
