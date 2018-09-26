@@ -67,7 +67,7 @@
      ```
    - PyTorch
      ```python
-     torch.torch.set_num_threads(num)
+     torch.set_num_threads(num)
      ```
    - TensorFlow
      ```python
