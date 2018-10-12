@@ -46,7 +46,7 @@
 
 9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.14 not found`错误  
    Step 1.  
-   将`/share/apps/utility_scripts/GLBC_install_user.sh` 复制到自己的`$HOME`目录下并执行。  
+   将`/share/apps/utility_scripts/GLIBC_install_user.sh` 复制到自己的`$HOME`目录下并执行。  
     这将会在你的`$HOME`目录下安装对应版本的GLIBC  
    Step 2.  
     安装完成之后，修改环境变量。（可以写到PBS脚本模板中）  
