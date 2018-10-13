@@ -11,7 +11,7 @@
 
 Device | Details(x Number) 
 --- | --- 
-CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x16
+CPU | Intel(R) Xeon(R) CPU E5-2620 v4 @ 2.10GHz  x32
 GPU | NVIDIA GeForce GTX 1080 Ti x8
 磁盘 | 500G，可用约400G 
 内存| 125G  
