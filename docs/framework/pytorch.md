@@ -4,9 +4,12 @@
 
 pytorch使用anaconda2安装,有如下版本：
 
-* 版本0.3.0，虚拟环境名为`pytorch0.3.0`, python=2.7
-* 版本0.3.1，虚拟环境名为`py36pytorch0.3.1`, python=3.6
-* 版本0.4.0，虚拟环境名为`py36pytorch0.4.0`, python=3.6
+| 虚拟环境 | Python版本 | PyTorch版本 |
+| :---: | :---: | :---: |
+| pytorch0.3.0       |  2.7.13 | 0.3.0 | 
+| py36pytorch0.3.1   |  3.6.3 | 0.3.1 |
+| py27pytorch0.4.0   |  2.7.15 | 0.4.0 |
+| py36pytorch0.4.0   |  3.6.2 | 0.4.0 |
 
 带有torchvision
 
