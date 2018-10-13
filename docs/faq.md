@@ -71,5 +71,7 @@
      ```
    - TensorFlow
      ```python
-     cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num, inter_op_parallelism_threads = num, device_count = {'CPU': num})
+     cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num,
+                                 inter_op_parallelism_threads = num,
+                                 device_count = {'CPU': num})
      sess = tf.Session(config=cpu_config)
