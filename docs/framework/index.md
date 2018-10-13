@@ -3,11 +3,13 @@
 对于python下的框架，使用anaconda分隔为不同的虚拟环境。
 目前公共的虚拟环境有：
 
-* pytorch0.3.0
-* py36pytorch0.3.1
-* tensorflow
+* pytorch0.3.0       // python 2.7.13
+* py36pytorch0.3.1   // python 3.6.3
+* py27pytorch0.4.0   // python 2.7.15
+* py36pytorch0.4.0   // python 3.6.2
+* tensorflow         // python 2.7.13, tensorflow 1.3.0
 
-运行`conda env list`可以获得可用的python虚拟环境。
+运行`conda info -e`可以获得可用的python虚拟环境。
 
 
 #### 激活环境:
