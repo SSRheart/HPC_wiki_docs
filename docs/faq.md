@@ -44,34 +44,51 @@
     您可以提交申请，但是作业对于同一个资源（CPU线程、GPU）是独占的。除非对方的计算作业结束或被其终止，您的申请将持续等待。
     因此，我们推荐您利用 [/jobs](http://219.217.238.193/jobs) 的信息来避免不必要的排队等待。
 
-9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.14 not found`错误  
-   Step 1.  
-   将`/share/apps/utility_scripts/GLIBC_install_user.sh` 复制到自己的`$HOME`目录下并执行。  
-    这将会在你的`$HOME`目录下安装对应版本的GLIBC  
-   Step 2.  
-    安装完成之后，修改环境变量。（可以写到PBS脚本模板中）  
+9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.14 not found`错误. 目前有几个方案，希望大家加以尝试反馈。(此解决方案为Beta版本）
 
-    ```  
-    export LD_LIBRARY_PATH=/path_to_glibc/bin:$LD_LIBRARY_PATH
-    export LD_PRELOAD=/path_to_glibc/lib/libc.so.6:$LD_PRELOAD
-    ```
+    `GLIBC-2.14`已经编译安装到了`/share/apps/glibc-2.14`.  
+
+    方案一. (目前推荐）
+        修改环境变量。（可以写到PBS脚本模板中）  
+
+        export GLIBC_DIR=/share/apps/glibc-2.14/lib 
+        export LD_PRELOAD=$GLIBC_DIR/libc.so.6:$LD_PRELOAD
+
+    方案二. (可能遇到段错误)
+        通过命令行调用ld-2.14.so，给出library-path 再调用python
+
+        export GLIBC_DIR=/share/apps/glibc-2.14/lib                                                            
+        $GLIBC_DIR/ld-2.14.so --library-path $GLIBC_DIR:/lib64:$LD_LIBRARY_PATH `which python` some_code.py
+
+    方案三. (可能遇到cuda driver version insufficient错误)
+       用patchelf修改某个环境下的python解释器二进制文件
+
+        # 非管理员用户的话位置在自己的`$HOME/.conda/envs/$ENVNAME/bin/`
+        # 这里假设管理员在解决`py36pytorch0.4.0` 出现的问题,修改`python3.6`的二进制文件
+        cd /share/apps/anaconda2/envs/py36pytorch0.4.0/bin/   
+        cp python3.6 python3.6.bak  # 记得做好备份 
+        patchelf --set-interpreter /share/apps/glibc-2.14/lib/ld-linux-x86-64.so.2 python3.6
 
     * 如果缺失的是其它版本的GLIBC，可以参照脚本自行设置。
     * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
 
-10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？
+
+
+10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？  
    大多数框架有按照实际CPU线程数开多线程的趋势，但是在我们申请了其中几个线程的情况下，开过多的线程会导致频繁的上下文切换，十分占用CPU资源，导致自己和他人的程序受到极大的影响。建议按照如下方法根据实际申请的CPU线程数进行限制，以达到更好的性能：
-   - MATLAB
-     ```matlab
+   
+    - MATLAB  
+     ```
      maxNumCompThreads(num)
      ```
-   - PyTorch
-     ```python
+   - PyTorch  
+     ```
      torch.set_num_threads(num)
      ```
-   - TensorFlow
-     ```python
+   - TensorFlow  
+     ```
      cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num,
                                  inter_op_parallelism_threads = num,
                                  device_count = {'CPU': num})
      sess = tf.Session(config=cpu_config)
+    ```
