@@ -8,10 +8,11 @@ pages:
         - '概要': 'framework/index.md'
         - 'chainer': 'framework/chainer.md'
         - 'PyTorch': 'framework/pytorch.md'
-        - 'Torch': 'framework/torch.md'
         - 'TensorFlow': 'framework/tensorflow.md'
+        - 'TensorBoard': 'framework/tensorboard.md'
         - 'Caffe': 'framework/caffe.md'
         - 'MATLAB': 'framework/matlab.md'
+        - 'Torch': 'framework/torch.md'
      - 注意事项 *: tips.md
      - FAQ *: faq.md
      - 系统监测: systemWatch.md
