@@ -48,27 +48,11 @@
 
     `GLIBC-2.14`已经编译安装到了`/share/apps/glibc-2.14`.  
 
-    方案一.
+    目前推荐方案:  
         修改环境变量。（可以写到PBS脚本模板中）  
 
         export GLIBC_DIR=/share/apps/glibc-2.14/lib 
-        export LD_LIBRARY_PATH=$GLIBC_DIR:$LD_LIBRARY_PATH
         export LD_PRELOAD=$GLIBC_DIR/libc.so.6:$LD_PRELOAD
-
-    方案二. 
-        通过命令行调用ld-2.14.so，给出library-path 再调用python
-
-        export GLIBC_DIR=/share/apps/glibc-2.14/lib                                                            
-        $GLIBC_DIR/ld-2.14.so --library-path $GLIBC_DIR/:lib64:$LD_LIBRARY_PATH `which python` some_code.py
-
-    方案三.
-       用patchelf修改某个环境下的python解释器二进制文件
-
-        # 非管理员用户的话位置在自己的`$HOME/.conda/envs/$ENVNAME/bin/`
-        # 这里假设管理员在解决`py36pytorch0.4.0` 出现的问题,修改`python3.6`的二进制文件
-        cd /share/apps/anaconda2/envs/py36pytorch0.4.0/bin/   
-        cp python3.6 python3.6.bak  # 记得做好备份 
-        patchelf --set-interpreter /share/apps/glibc-2.14/lib/ld-linux-x86-64.so.2 python3.6
 
     * 如果缺失的是其它版本的GLIBC，可以参照脚本自行设置。
     * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
