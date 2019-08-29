@@ -3,6 +3,7 @@
 ## 版本
 
 tensorflow使用anaconda2安装,版本1.3，虚拟环境名为tensorflow, 此环境中python 版本2.7。
+
 | 虚拟环境 | Python版本 | Tensorflow版本 |
 | :---: | :---: | :---: |
 | tensorflow   | 2.7.13 | 1.3.0 |
