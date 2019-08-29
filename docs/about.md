@@ -2,7 +2,7 @@
 
 
 ## Github页面
-[Github project](https://github.com/LCAR979/HPC_wiki_docs)
+[Github project](https://github.com/SSRheart/HPC_wiki_docs)
 
 
 ## 联系我们

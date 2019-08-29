@@ -50,9 +50,9 @@ cd ..
 安装完成之后，还需要修改对应的`modulefiles`文件，路径在`/share/apps/Modules/modulefiles/gcc`，按照模板重新写一个文件就好。
 
 ### 5. 任务一直排队Q的处理
-[详细issue讨论](https://github.com/sonack/HPC_wiki_docs/issues/24)  
+[详细issue讨论](https://github.com/SSRheart/HPC_wiki_docs/issues/24)
 TLDR:
-    
+
 - 使用`ps aux | grep qrun`查看`loop_qrun.sh`脚本进程id
 - `kill -9 #process_id` 来停止该脚本
 - `nohup sh /home/user/test_pbs/chk_gpu/loop_qrun.sh >/dev/null 2>&1 &` 重启脚本，后台不中断运行

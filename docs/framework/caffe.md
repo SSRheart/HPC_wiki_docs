@@ -8,7 +8,7 @@ caffe 添加新层后需要整体重新编译，故从18年5月起，更改caffe
 
 caffe 的依赖库安装路径：`/share/apps/caffelib`
 
-公用版caffe 的源码和安装路径均为: `/share/package/caffe` 
+公用版caffe 的源码和安装路径均为: `/share/package/caffe`
 (可作为自行编译时Makefile和Makefile.config的参考)
 
 
@@ -28,7 +28,7 @@ cd $YOUR_CAFFE_PATH
 # edit Makefile and Makefile.config as you need
 # you may want to take /share/package/caffe/Makefile.config as a reference
 
-make all -j32
+make all -j16
 make pycaffe
 ```
 
@@ -37,7 +37,7 @@ make pycaffe
 
 ### pycaffe
 
-pycaffe接口在`$YOUR_CAFFE_PATH/python`中, 
+pycaffe接口在`$YOUR_CAFFE_PATH/python`中,
 
 如果您要运行pycaffe，那么一个pbs文件的模板为
 ```shell
@@ -79,13 +79,13 @@ module unload caffe_basic
     例如：
     当前node1节点gpu0,gpu1已经被占用。现需要继续在node1上提交另外的caffe任务
 
-    * 如果需要申请一个gpu:  
-      #PBS -l 申请资源中gpus=1  
-      caffe命令行参数 --gpu 0  
- 
-    * 如果需要申请两个gpu: 
-      #PBS -l 申请资源中gpus=2  
-      caffe命令行参数 --gpu 0,1  
+    * 如果需要申请一个gpu:
+      #PBS -l 申请资源中gpus=1
+      caffe命令行参数 --gpu 0
+
+    * 如果需要申请两个gpu:
+      #PBS -l 申请资源中gpus=2
+      caffe命令行参数 --gpu 0,1
 
     注意正如上面提到的，命令行参数请始终从0开始写起。集群任务调度系统能够自行调度实际GPU。
 

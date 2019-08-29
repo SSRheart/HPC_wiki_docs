@@ -5,11 +5,14 @@
 
 | env | note |
 | :---: | --- |
-| pytorch0.3.0       | python 2.7.13|
-| py36pytorch0.3.1   | python 3.6.3|
-| py27pytorch0.4.0   | python 2.7.15|
-| py36pytorch0.4.0   | python 3.6.2|
-| tensorflow         | python 2.7.13, tensorflow 1.3.0|
+| chainer            | python 3.5.4, chainer 4.2.0 |
+| pytorch0.3.0       | python 2.7.13 |
+| py36pytorch0.3.1   | python 3.6.3 |
+| py27pytorch0.4.0   | python 2.7.15 |
+| py36pytorch0.4.0   | python 3.6.2 |
+| tensorflow         | python 2.7.13, tensorflow 1.3.0 |
+| py3                | python 3.6.6, pytorch 1.0.0.dev20181207, tensorflow 1.10.1|
+
 
 运行`conda info -e`可以获得可用的python虚拟环境。
 

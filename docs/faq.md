@@ -20,7 +20,7 @@
 
 4. 我的用户目录是否有**空间大小限制**？
 
-    建议用户在`/share/home`下总空间大小在50G以内。对于网络中间输出等临时文件，请将文件写入到`/share/data/yourName`我们将定期查看文件系统中体积较大的目录。 您也可以在根目录下通过`du -h`来查看自己占用的空间大小。
+    建议用户在`/share/home`下总空间大小在50G以内。对于网络中间输出等临时文件，请将文件写入到`/share/data/yourName`我们将定期查看文件系统中体积较大的目录。 您也可以在根目录下通过`du -h --max-depth 1`来查看自己占用的空间大小。
 
 5. 我的**SSH连接**能持续多久，会掉线吗?
 
@@ -44,33 +44,39 @@
     您可以提交申请，但是作业对于同一个资源（CPU线程、GPU）是独占的。除非对方的计算作业结束或被其终止，您的申请将持续等待。
     因此，我们推荐您利用 [/jobs](http://219.217.238.193/jobs) 的信息来避免不必要的排队等待。
 
-9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.14 not found`错误. 目前有几个方案，希望大家加以尝试反馈。(此解决方案为Beta版本）
+9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.XX not found`错误. 目前有几个方案，希望大家加以尝试反馈。
 
-    `GLIBC-2.14`已经编译安装到了`/share/apps/glibc-2.14`.  
+    `GLIBC-2.14`和`GLIBC-2.23`已经编译安装到了`/share/apps/glibc-2.14`和`/share/apps/glibc-2.23`.
 
-    目前推荐方案:  
-        修改环境变量。（可以写到PBS脚本模板中）  
+    方案一（适用于GLIBC-2.14）:
+        修改环境变量。（可以写到PBS脚本模板或.bashrc中）
 
-        export GLIBC_DIR=/share/apps/glibc-2.14/lib 
+        export GLIBC_DIR=/share/apps/glibc-2.14/lib
         export LD_PRELOAD=$GLIBC_DIR/libc.so.6:$LD_PRELOAD
 
-    * 如果缺失的是其它版本的GLIBC，可以参照脚本自行设置。
+    方案二（适用于GLIBC-2.14/2.23）：
+
+        cd /path_to_your_anaconda_env/bin # 可以通过`conda info -e`查看
+        cp python3.x python3.x.bak # 请根据实际情况备份
+        patchelf --set-interpreter /share/apps/glibc-2.xx/lib/ld-linux-x86-64.so.2 python3.x
+
+
+    * 建议使用方案二，对自己创建的环境进行处理，如果缺失的是其它版本的GLIBC，小于2.23可以用2.23，大于2.23可以自行编译glibc，并参照方案二设置。
     * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
 
 
-
-10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？  
+10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？
    大多数框架有按照实际CPU线程数开多线程的趋势，但是在我们申请了其中几个线程的情况下，开过多的线程会导致频繁的上下文切换，十分占用CPU资源，导致自己和他人的程序受到极大的影响。建议按照如下方法根据实际申请的CPU线程数进行限制，以达到更好的性能：
-   
-    - MATLAB  
+
+    - MATLAB
      ```
      maxNumCompThreads(num)
      ```
-   - PyTorch  
+   - PyTorch
      ```
      torch.set_num_threads(num)
      ```
-   - TensorFlow  
+   - TensorFlow
      ```
      cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num,
                                  inter_op_parallelism_threads = num,

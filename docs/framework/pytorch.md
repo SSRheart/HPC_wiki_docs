@@ -6,14 +6,15 @@ pytorch使用anaconda2安装,有如下版本：
 
 | 虚拟环境 | Python版本 | PyTorch版本 |
 | :---: | :---: | :---: |
-| pytorch0.3.0       |  2.7.13 | 0.3.0 | 
+| pytorch0.3.0       |  2.7.13 | 0.3.0 |
 | py36pytorch0.3.1   |  3.6.3 | 0.3.1 |
 | py27pytorch0.4.0   |  2.7.15 | 0.4.0 |
 | py36pytorch0.4.0   |  3.6.2 | 0.4.0 |
+| py3                | 3.6.6 | 1.0.0.dev20181207 |
 
 带有torchvision
 
-如果已有环境不能满足需要，可以自行建立新环境。个人用户创建的新环境相互独立。  
+如果已有环境不能满足需要，可以自行建立新环境。个人用户创建的新环境相互独立。
 安装方法见[概要](index.md)
 
 !!! Note
@@ -28,7 +29,7 @@ torch.set_num_threads(num) # Sets the number of OpenMP threads used for parallel
 ```shell
 #PBS -N test_pytorch
 #PBS -q default
-#PBS -l nodes=1:ppn=12:gpus=8
+#PBS -l nodes=1:ppn=16:gpus=8
 #PBS -o /home/NAME/logs
 #PBS -e /home/NAME/err_log
 
