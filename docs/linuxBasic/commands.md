@@ -2,10 +2,10 @@
 *本节由CastellanLiu贡献*
 
 ## 获取帮助
-一般情况下，linux命令会有`-h` 或者`--help`选项输出最基本的提示信息。  
+一般情况下，linux命令会有`-h` 或者`--help`选项输出最基本的提示信息。
 对于系统命令，可以使用`man`获得帮助。
 
-举例，想要快速了解`make`命令的参数，可以通过  
+举例，想要快速了解`make`命令的参数，可以通过
 `make -h` 或`make --help` 以及`man make`
 
 除此之外，可以通过网站[Linux命令大全](http://man.linuxde.net/)了解更多相关命令
@@ -43,7 +43,7 @@ ln -s /usr/local/cuda-9.0 /usr/local/cuda # 更换版本，但调用路径不变
 
 ###复制、移动和删除
 ```shell
-cp [-OPT] src dst 
+cp [-OPT] src dst
 #文件复制命令，OPT可以是-r(src及其子文件、子目录，r是递归的意思),-f(强制执行),-rf，src可以是目录或文件，dst可以是目录(则拷贝到dst目录下)或目录+文件名(这种情况必须是拷贝单个文件，则拷贝到该目录下并改名)
 
 cp hello.py myfold/hello_world.py
@@ -72,7 +72,7 @@ tac filename # 按行倒序显示文件内容
 ## 压缩与解压缩
 本文档仅列出最常用的.zip和.tar.gz(.tgz)的压缩解压命令，详细命令可参见[Linux命令大全 - 文件压缩与解压](http://man.linuxde.net/sub/%E6%96%87%E4%BB%B6%E5%8E%8B%E7%BC%A9%E4%B8%8E%E8%A7%A3%E5%8E%8B)
 
-###压缩 
+###压缩
 
 ```shell
 tar -zcvf filename.tar.gz(filename.tgz) PATH # 用gzip压缩为tar包，PATH可以是文件或目录
@@ -80,13 +80,15 @@ zip  -r filename.zip PATH # 压缩为zip包
 ```
 
 ###解压
-  
+
 ```shell
 tar -zxvf filename.tar.gz(filename.tgz) # 将 filename.tar.gz 或 filename.tgz 解压到当前目录
 unzip filename.zip # 在当前目录下解压zip包
 unzip -n filename.zip -d /tmp # 将filename.zip在指定目录/tmp下解压缩，如果已有相同的文件存在，不覆盖原先的文件。
 ```
 ## 数据传输
+建议使用FileZilla进行文件传输. 如有需求,请参考下列示例.
+
 使用scp命令，从本地传输到服务器和从服务器传输到本地的用法基本一致，只需在scp命令中按照
 `scp [-r]  source destination` 的顺序书写即可。
 
