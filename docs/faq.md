@@ -10,17 +10,20 @@
     对环境变量PATH的修改可以在`~/.bashrc`中加入
     `PATH=$PATH:/some/file/location`
 
+    需要注意的是，如果需要永久性修改，需要将环境保存为镜像，并调用该镜像。
+
 2. 如何在我实验室的电脑和服务器之间**传送数据**？
 
     请查阅[数据传输](linuxBasic/commands.md#数据传输)一节对scp指令的介绍和[远程连接](sshConnection.md)一节。
 
 3. 我是否能够在服务器上**安装软件**?
 
-    出于系统稳定性的考虑，普通用户不能在系统上安装软件(回忆ubuntu上`apt-get install`需要`sudo`执行), 如有安装需求，请和管理员联系。
+    可以，在申请的镜像中，用户拥有管理员权限，可以通过apt get install安装软件，但是需要保存成镜像才会在下一次使用这个镜像时生效。
+    <!-- 出于系统稳定性的考虑，普通用户不能在系统上安装软件(回忆ubuntu上`apt-get install`需要`sudo`执行), 如有安装需求，请和管理员联系。 -->
 
 4. 我的用户目录是否有**空间大小限制**？
 
-    建议用户在`/share/home`下总空间大小在50G以内。对于网络中间输出等临时文件，请将文件写入到`/share/data/yourName`我们将定期查看文件系统中体积较大的目录。 您也可以在根目录下通过`du -h --max-depth 1`来查看自己占用的空间大小。
+    建议用户在`/opt/data/private`下总空间大小在1TB以内。您也可以在根目录下通过`du -h --max-depth 1`来查看自己占用的空间大小。
 
 5. 我的**SSH连接**能持续多久，会掉线吗?
 
@@ -28,58 +31,6 @@
 
      所以我们建议，在您提交完任务/查看任务结果之后，通过`exit`及时退出登录。
 
-6. 什么是**多机版本**的程序，**单机版本**呢？
-
-    多机版本的程序（框架）是指安装或编译过程中选择了多机并行特性、因此支持计算任务在不同主机之间并行执行的程序。
-    区别于不支持多机并行的单机版本。
-
-    目前caffe/pytorch/Matlab均为单机版本,支持单机多GPU的计算，不支持跨主机的计算任务。
-
-7. 我忘记了我的**用户名**或**登录密码**怎么办？
+6. 我忘记了我的**用户名**或**登录密码**怎么办？
 
     用户名默认一般是你的姓名全拼小写，忘记密码请联系管理员重置。
-
-8. 别人已申请并正在使用的**资源**，我能否再次申请？
-
-    您可以提交申请，但是作业对于同一个资源（CPU线程、GPU）是独占的。除非对方的计算作业结束或被其终止，您的申请将持续等待。
-    因此，我们推荐您利用 [/jobs](http://219.217.238.193/jobs) 的信息来避免不必要的排队等待。
-
-9. 自行安装Python虚拟环境或其它情况下遇到`Version GLIBC_2.XX not found`错误. 目前有几个方案，希望大家加以尝试反馈。
-
-    `GLIBC-2.14`和`GLIBC-2.23`已经编译安装到了`/share/apps/glibc-2.14`和`/share/apps/glibc-2.23`.
-
-    方案一（适用于GLIBC-2.14）:
-        修改环境变量。（可以写到PBS脚本模板或.bashrc中）
-
-        export GLIBC_DIR=/share/apps/glibc-2.14/lib
-        export LD_PRELOAD=$GLIBC_DIR/libc.so.6:$LD_PRELOAD
-
-    方案二（适用于GLIBC-2.14/2.23）：
-
-        cd /path_to_your_anaconda_env/bin # 可以通过`conda info -e`查看
-        cp python3.x python3.x.bak # 请根据实际情况备份
-        patchelf --set-interpreter /share/apps/glibc-2.xx/lib/ld-linux-x86-64.so.2 python3.x
-
-
-    * 建议使用方案二，对自己创建的环境进行处理，如果缺失的是其它版本的GLIBC，小于2.23可以用2.23，大于2.23可以自行编译glibc，并参照方案二设置。
-    * GLIBC的整体升级工作可能会带来比较大的不确定性，短期内不会做系统层面的整体升级。
-
-
-10. 如何限制程序计算线程数，以避免过多的上下文切换导致的系统CPU占用过多？
-   大多数框架有按照实际CPU线程数开多线程的趋势，但是在我们申请了其中几个线程的情况下，开过多的线程会导致频繁的上下文切换，十分占用CPU资源，导致自己和他人的程序受到极大的影响。建议按照如下方法根据实际申请的CPU线程数进行限制，以达到更好的性能：
-
-    - MATLAB
-     ```
-     maxNumCompThreads(num)
-     ```
-   - PyTorch
-     ```
-     torch.set_num_threads(num)
-     ```
-   - TensorFlow
-     ```
-     cpu_config = tf.ConfigProto(intra_op_parallelism_threads = num,
-                                 inter_op_parallelism_threads = num,
-                                 device_count = {'CPU': num})
-     sess = tf.Session(config=cpu_config)
-    ```
