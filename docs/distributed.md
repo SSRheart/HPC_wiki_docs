@@ -29,7 +29,7 @@ train_loader = torch.utils.data.DataLoader(
         sampler=sampler,
         batch_size=args.batch_size,
         num_workers=args.workers,
-        pin_memory=True,
+        pin_memory=True, # 是否使用pin_memory有待商榷，实际经验速度不一定能提高
         drop_last=True
     )
 ```
