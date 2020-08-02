@@ -7,7 +7,8 @@
 ## .sh 文件
 在.sh文件中，可以直接按照本地terminal格式进行命令撰写，并通过交互式开发环境调试成功，一个简单的.sh文件如：
 ```shell
-#!/bin/bash  # IMPORTANT! Assign the executor!
+#!/bin/bash
+# First line is IMPORTANT to assign the executor!
 cd /opt/data/private/imagenet_classification
 source ~/anaconda3/etc/profile.d/conda.sh # this command may be essential to initialize conda env list in child bash process
 conda activate th1.5 # select your conda env
