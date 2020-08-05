@@ -13,7 +13,7 @@ cd /opt/data/private/imagenet_classification
 source ~/anaconda3/etc/profile.d/conda.sh # this command may be essential to initialize conda env list in child bash process
 conda activate th1.5 # select your conda env
 python train.py --model vgg19 --dataroot /opt/data/default/common/Datasets/ILSVRC12 # main command
-conda deactivate th1.5
+conda deactivate
 ```
 
 ## 创建训练任务
