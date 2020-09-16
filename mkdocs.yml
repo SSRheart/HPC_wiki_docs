@@ -26,6 +26,7 @@ pages:
    #      - '配置记录': 'admin/systemConfigRecord.md'
      - 更新记录: changeLog.md
      - About: about.md
+     - 综合楼新配机器: pc.md
 theme: readthedocs
 markdown_extensions:
     - admonition
