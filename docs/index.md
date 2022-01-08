@@ -6,6 +6,7 @@
 
 必读
 
+* [网络安全](security.md)
 * [集群概况](clusterIntro.md)
 * [任务系统](jobs.md)
 
